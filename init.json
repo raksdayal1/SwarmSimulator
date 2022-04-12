@@ -1,0 +1,32 @@
+{
+    "IP_addr" : "127.0.0.1",
+    "Vehicles": {
+      "Quadcopters": {
+        "Instances": 3,
+        "InstanceNo": [0, 1, 2],
+        "Xstart": [0, 5, 4],
+        "Ystart": [0, 0, -4],
+        "Zstart": [0, 0, 0]
+      },
+      "Fixedwings": {
+        "Instances": 1,
+        "InstanceNo": [3],
+        "Xstart": [0],
+        "Ystart": [5],
+        "Zstart": [0]
+      },
+      "Rovers": {
+        "Instances": 0,
+        "InstanceNo": [],
+        "Xstart": [],
+        "Ystart": [],
+        "Zstart": []
+      }
+    },
+    "Home": {
+      "latitude": 37.894385845,
+      "longitude": -97.63678242,
+      "altitude": 230
+    },
+  "FileInformation": "Do not modify this information. Xstart, Ystart, Zstart is in gazebo coordinates and given wrt to home location"
+}
