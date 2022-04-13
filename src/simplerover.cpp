@@ -3,7 +3,7 @@
  * Date: Feb. 24 2022
  *
  * Modified by Rakshit Allamraju
- * Date: April 5 2022
+ * Date: April 13 2022
  */
 #include "simplerover.h"
 #include "p_util.h"
@@ -39,7 +39,6 @@ SimpleRover::SimpleRover(double x, double y, double theta,  uint16_t _ap_port, u
     addIntegrator(this->x, this->vx);
     addIntegrator(this->y, this->vy);
     addIntegrator(this->theta, this->theta_dot);
-
 }
 
 void SimpleRover::update()
@@ -66,7 +65,6 @@ void SimpleRover::update()
 
         }
         */
-
 
     if (this->json->ReceiveServoPacket(servo_out))
     {

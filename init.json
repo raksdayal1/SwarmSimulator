@@ -3,25 +3,25 @@
     "Vehicles": {
       "test" : "test",
       "Quadcopters": {
-        "Instances": 3,
-        "InstanceNo": [0, 1, 2],
-        "Xstart": [0, 5, 4],
-        "Ystart": [0, 0, -4],
-        "Zstart": [0, 0, 0]
-      },
-      "Fixedwings": {
-        "Instances": 1,
-        "InstanceNo": [3],
-        "Xstart": [0],
-        "Ystart": [5],
-        "Zstart": [0]
-      },
-      "Rovers": {
         "Instances": 0,
         "InstanceNo": [],
         "Xstart": [],
         "Ystart": [],
         "Zstart": []
+      },
+      "Fixedwings": {
+        "Instances": 0,
+        "InstanceNo": [],
+        "Xstart": [],
+        "Ystart": [],
+        "Zstart": []
+      },
+      "Rovers": {
+        "Instances": 1,
+        "InstanceNo": [0],
+        "Xstart": [3],
+        "Ystart": [4],
+        "Zstart": [0.1]
       }
     },
     "Home": {
