@@ -20,14 +20,21 @@ struct gazebo_packet {
 } gpkt_r;
 
 
-SimpleRover::SimpleRover(double x, double y, double theta, libAP_JSON *json)
+SimpleRover::SimpleRover(double x, double y, double theta,  uint16_t _ap_port, uint16_t _gazebo_port)
 {
 
     this->x = x;
     this->y = y;
     this->theta = theta;
 
-    this->json = json;
+    this->json = new libAP_JSON();
+
+    this->gazebo_port = _gazebo_port;
+    this->ap_port = _ap_port;
+
+    if(this->json->InitSockets("127.0.0.1", this->ap_port)){
+        std::cout<<"Started socket on 127.0.0.1:" << this->ap_port << std::endl;
+    }
 
     addIntegrator(this->x, this->vx);
     addIntegrator(this->y, this->vy);
@@ -90,7 +97,7 @@ void SimpleRover::update()
         gpkt_r.roll = 0.0;
         gpkt_r.yaw = this->theta;
 
-        auto bytes_sent = gazebo_sock.sendto(&gpkt_r, sizeof(gpkt_r), "127.0.0.1", 5006);
+        auto bytes_sent = gazebo_sock.sendto(&gpkt_r, sizeof(gpkt_r), "127.0.0.1", this->gazebo_port);
 
         std::cout << "sending " << bytes_sent << " bytes to gazebo" <<std::endl;
 

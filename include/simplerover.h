@@ -18,7 +18,7 @@
 class SimpleRover : public Block
 {
 public:
-    SimpleRover(double x, double y, double theta, libAP_JSON *json);
+    SimpleRover(double x, double y, double theta, uint16_t _ap_port, uint16_t _gazebo_port);
     void update();
     void rpt();
 
@@ -35,6 +35,8 @@ private:
     double x, y, theta, theta_dot;
     double vx, vy, V;
     libAP_JSON *json;
+
+    uint16_t gazebo_port, ap_port;
 
     //connection to Gazebo
     SocketExample gazebo_sock = SocketExample(true);

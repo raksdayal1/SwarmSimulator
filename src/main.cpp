@@ -35,9 +35,7 @@ int main(int argc, char** argv) {
 
   bool flag(0);
 
-  libAP_JSON ap;
-
-/*
+  /*
   // read a JSON file
   std::ifstream file("init.json");
   json j;
@@ -51,54 +49,33 @@ int main(int argc, char** argv) {
 
   */
 
+  int N_mr(0), N_fw(0), N_sr(0); // number of multirotor, Fixedwing and rovers
 
-  if (argc != 2){
-      std::cout << "Incorrect number of arguments " << std::endl;
-      exit(-1);
+  N_sr = 1;
+
+  vector<Block*> vObj0;
+  vector< vector<Block*> > vStage;
+
+  // allocating dynamic array of Size N
+  SimpleRover* sr_arr = (SimpleRover*)malloc(sizeof(SimpleRover) * N_sr);
+
+  // calling constructor for each index of array
+  for (int i = 0; i < N_sr; i++) {
+      sr_arr[i] = SimpleRover(0.0, 0.0, 0.0, 9002, 5006);
+      vObj0.push_back(&sr_arr[i]);
   }
 
-  flag = atoi(argv[1]);
-  //std::cout << "port used is " << port << std::endl;
-  if (ap.InitSockets("127.0.0.1", 9002)) //port is hardcoded to 9002
-  {
-      std::cout << "started socket" << std::endl;
+  vStage.push_back( vObj0);
+
+  double dts[] = { dt};
+  Sim *sim = new Sim( dts, tmax, vStage);
+  sim->run();
+
+  sim->cleanup();
+  delete sim;
+
+  for (int i = 0; i < N_sr; i++) {
+      delete &sr_arr[i];
   }
-
-  if(flag){
-      cout << "Starting Quad physics engine " << std::endl;
-      GenericMultirotor *quad = new GenericMultirotor(&ap);
-
-      vector<Block*> vObj0;
-      vObj0.push_back(quad);
-
-      vector< vector<Block*> > vStage;
-      vStage.push_back( vObj0);
-
-      double dts[] = { dt};
-      Sim *sim = new Sim( dts, tmax, vStage);
-      sim->run();
-
-      sim->cleanup();
-      delete sim;
-      delete quad;
-  }else
-  {
-      cout << "Starting Rover physics engine " << std::endl;
-      SimpleRover *rover = new SimpleRover(0.0, 0.0, 0.0, &ap);
-      vector<Block*> vObj0;
-      vObj0.push_back(rover);
-
-      vector< vector<Block*> > vStage;
-      vStage.push_back( vObj0);
-
-      double dts[] = { dt};
-      Sim *sim = new Sim( dts, tmax, vStage);
-      sim->run();
-
-      sim->cleanup();
-      delete sim;
-      delete rover;
-  }
-
 
 }

@@ -687,7 +687,11 @@
           <multiplier>70</multiplier>
         </control>
       </plugin>
-      <plugin name='CMD' filename='libCMDPlugin.so'/>
+      <plugin name='CMD' filename='libCMDPlugin.so'>
+		<IPAddress>127.0.0.1</IPAddress>
+		<CMDPort>5006</CMDPort>
+		<InitialPosition>2 3 0.1 0 0 0</InitialPosition>
+	 </plugin>
       <static>1</static>
     </model>
     <state world_name='default'>
