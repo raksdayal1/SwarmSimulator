@@ -1,6 +1,7 @@
 {
     "IP_addr" : "127.0.0.1",
     "Vehicles": {
+      "test" : "test",
       "Quadcopters": {
         "Instances": 3,
         "InstanceNo": [0, 1, 2],

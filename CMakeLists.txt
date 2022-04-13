@@ -1,0 +1,24 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(Support)
+
+include_directories(eigen3)
+
+if(UNIX)
+    find_package(gazebo REQUIRED)
+    include_directories(${GAZEBO_INCLUDE_DIRS})
+    link_directories(${GAZEBO_LIBRARY_DIRS})
+    list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
+endif()
+
+#find_package(nlohmann_json 3.2.0 REQUIRED)
+
+include_directories(osk/include include)
+set(OSKSOURCES osk/src/sim.cpp osk/src/block.cpp osk/src/state.cpp)
+set(SRC src/main.cpp src/simplerover.cpp src/libAP_JSON.cpp
+    src/SocketExample.cpp src/genericmultirotor.cpp)
+
+add_library(CMDPlugin SHARED src/CMDPlugin.cc src/SocketExample.cpp)
+target_link_libraries(CMDPlugin ${GAZEBO_LIBRARIES})
+
+add_executable(PhysicsEngine ${SRC} ${OSKSOURCES})# nlohmann_json::nlohmann_json)
