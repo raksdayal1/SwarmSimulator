@@ -36,10 +36,18 @@ double GroundEffect(Eigen::Vector3d pos){
     return out;
 }
 
-GenericMultirotor::GenericMultirotor(libAP_JSON *json)
+GenericMultirotor::GenericMultirotor(double x, double y, double z,
+                                     double phi, double theta, double psi)
 {
 
-    this->json = json;
+    this->json = new libAP_JSON();
+
+    this->x = x;
+    this->y = y;
+    this->z = z;
+    this->phi = phi;
+    this->theta = theta;
+    this->psi = psi;
 
     // Position integrators
     addIntegrator(this->rotorState.pos.x, this->x_dot);

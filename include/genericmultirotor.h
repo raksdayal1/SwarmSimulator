@@ -58,7 +58,8 @@ double GroundEffect(Eigen::Vector3d pos);
 class GenericMultirotor : public Block
 {
 public:
-    GenericMultirotor(libAP_JSON *json);
+    GenericMultirotor(double x, double y, double z,
+                      double phi, double theta, double psi);
 
     void update();
     void rpt();
@@ -68,6 +69,8 @@ private:
     VehicleState rotorState;
     double x_dot, y_dot, z_dot, u_dot, v_dot, w_dot;
     double phi_dot, theta_dot, psi_dot, p_dot, q_dot, r_dot;
+
+    double x, y, z, phi, theta, psi;
 
     // Servo values
     uint16_t servo_out[16];

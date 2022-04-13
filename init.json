@@ -29,5 +29,5 @@
       "longitude": -97.63678242,
       "altitude": 230
     },
-  "FileInformation": "Do not modify this information. Xstart, Ystart, Zstart is in gazebo coordinates and given wrt to home location"
+  "TODO": "Need to add environment information to create the simulation required"
 }
