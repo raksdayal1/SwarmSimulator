@@ -39,6 +39,7 @@ int main(int argc, char** argv) {
   double x_init(0), y_init(0), z_init(0), roll_init(0), pitch_init(0), yaw_init(0);
 
   int temp_ap(0), temp_gazebo(0);
+  int temp, temp1;
 
   // read the JSON file containing simulation info
   std::ifstream file(argv[1]);
@@ -54,9 +55,16 @@ int main(int argc, char** argv) {
   vector< vector<Block*> > vStage;
 
   // Setting Rover data
-  SimpleRover* sr_array[N_sr];
+  if(N_sr == 0){
+      temp = 1;
+  }
+  else{
+      temp = N_sr;
+  }
 
-  // calling constructor for each index of array
+  SimpleRover* sr_array[temp];
+
+  // calling constructor for each index of roverarray
   for (int i = 0; i < N_sr; i++) {
 
       temp_ap = sim_json["Vehicles"]["Rovers"]["InstanceNo"][i];
@@ -73,6 +81,38 @@ int main(int argc, char** argv) {
 
   }
 
+  // Setting Multicopter data
+  if(N_mr == 0){
+      temp1 = 1;
+  }
+  else{
+      temp1 = N_mr;
+  }
+
+  GenericMultirotor* mr_array[temp1];
+
+  // calling constructor for each index of multirotor array
+  for (int i = 0; i < N_mr; i++) {
+
+      temp_ap = sim_json["Vehicles"]["Quadcopters"]["InstanceNo"][i];
+
+      ap_port = 9002 + 10*temp_ap;
+      gazebo_port = 5006 + 10*temp_gazebo;
+
+      x_init = sim_json["Vehicles"]["Quadcopters"]["Xstart"][i];
+      y_init = sim_json["Vehicles"]["Quadcopters"]["Ystart"][i];
+      z_init = sim_json["Vehicles"]["Quadcopters"]["Zstart"][i];
+      roll_init = 0.0;
+      pitch_init = 0.0;
+      yaw_init = 0.0;
+
+      mr_array[i] = new GenericMultirotor(x_init, y_init, z_init,
+                                          roll_init, pitch_init, yaw_init,
+                                          ap_port, gazebo_port);
+      vObj0.push_back(mr_array[i]);
+
+  }
+
   vStage.push_back( vObj0);
 
   double dts[] = { dt};
@@ -82,8 +122,12 @@ int main(int argc, char** argv) {
   sim->cleanup();
   delete sim;
 
-  for (int i = 0; i < N_sr; i++) {
-      delete sr_array[i];
+  for (int i = 0; i < N_sr; i++) {      
+        delete sr_array[i];
+  }
+
+  for(int i = 0; i<N_mr; i++){
+          delete mr_array[i];
   }
 
 }
