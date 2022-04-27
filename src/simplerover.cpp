@@ -10,15 +10,7 @@
 
 uint16_t servo_out[16];
 
-struct gazebo_packet {
-    double x_pos;
-    double y_pos;
-    double z_pos;
-    double roll;
-    double pitch;
-    double yaw;
-} gpkt_r;
-
+gazebo_packet gpkt_r;
 
 SimpleRover::SimpleRover(double x, double y, double theta,  uint16_t _ap_port, uint16_t _gazebo_port)
 {
@@ -97,8 +89,7 @@ void SimpleRover::update()
 
         auto bytes_sent = gazebo_sock.sendto(&gpkt_r, sizeof(gpkt_r), "127.0.0.1", this->gazebo_port);
 
-        std::cout << "sending " << bytes_sent << " bytes to gazebo" <<std::endl;
-
+        //std::cout << "sending " << bytes_sent << " bytes to gazebo" <<std::endl;
 
         this->json->SendState(this->state.timestamp,
                      0, 0, this->theta_dot,    // gyro

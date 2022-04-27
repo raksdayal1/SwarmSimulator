@@ -14,6 +14,7 @@
 #include "libAP_JSON.h"
 
 #include "sim.h"
+#include <p_util.h>
 
 class SimpleRover : public Block
 {
