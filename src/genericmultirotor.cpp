@@ -7,40 +7,23 @@
  */
 #include "genericmultirotor.h"
 
-#define GRAVITY_ON 0
-#define DEBUG 0
+#define GRAVITY_ON 1
+#define DEBUG 1
 
-struct gazebo_packet {
-    double x_pos;
-    double y_pos;
-    double z_pos;
-    double roll;
-    double pitch;
-    double yaw;
-} gpkt;
-
-
-double GroundEffect(Eigen::Vector3d pos){
-    Eigen::Vector4d plane, pos_extended;
-
-    // to check if point lies on the plane, or either of the half surfaces created by the plane
-    // take the dot product dot( [a,b,c,d], [x,y,z,1] ), where aX+bY+cZ+d = 0 is the equation of the plane
-    // and (x,y,z) is the point.
-
-    // Ground plane equation is 0X+0Y+1Z+0 = 0 i.e. Z=0
-    plane(0) = 0; plane(1) = 0; plane(2) = 1; plane(3) = 0;
-    pos_extended(0) = pos(0); pos_extended(1) = pos(1); pos_extended(2) = pos(2); pos_extended(3) = 1;
-
-    double out = pos_extended.dot(plane);
-
-    return out;
-}
+gazebo_packet gpkt;
 
 GenericMultirotor::GenericMultirotor(double x, double y, double z,
-                                     double phi, double theta, double psi)
+                                     double phi, double theta, double psi, uint16_t _ap_port, uint16_t _gazebo_port)
 {
 
     this->json = new libAP_JSON();
+
+    this->gazebo_port = _gazebo_port;
+    this->ap_port = _ap_port;
+
+    if(this->json->InitSockets("127.0.0.1", this->ap_port)){
+        std::cout<<"[Multirotor]: Started socket on 127.0.0.1:" << this->ap_port << std::endl;
+    }
 
     this->x = x;
     this->y = y;
@@ -81,13 +64,13 @@ void GenericMultirotor::update()
 {
 
     double g(9.81);
-    if( State::sample( 1.0/10) || State::tickfirst || State::ticklast) {
+    if( State::sample( 1.0/1000) || State::tickfirst || State::ticklast) {
       this->rotorState.timestamp = State::t;
 
-        if(DEBUG){
-            printf( "t= %8.3f, x = %8.3f, y = %8.3f, z = %8.3f\n",
-            this->rotorState.timestamp, this->rotorState.pos.x, this->rotorState.pos.y, this->rotorState.pos.z);
-        }
+        //if(DEBUG){
+        //    printf( "t= %8.3f, x = %8.3f, y = %8.3f, z = %8.3f\n",
+        //    this->rotorState.timestamp, this->rotorState.pos.x, this->rotorState.pos.y, this->rotorState.pos.z);
+       // }
 
         if (this->json->ReceiveServoPacket(this->servo_out))
         {
@@ -115,21 +98,27 @@ void GenericMultirotor::update()
                 gravity(1) = g*cos(this->rotorState.att.theta)*sin(this->rotorState.att.phi);
                 gravity(2) = g*cos(this->rotorState.att.theta)*cos(this->rotorState.att.phi);
             }
+            else{
+                gravity(0) = 0;
+                gravity(1) = 0;
+                gravity(2) = 0;
+            }
 
-            /*
+            Eigen::Vector3d curr_pos;
+            curr_pos(0) = this->rotorState.pos.x;
+            curr_pos(1) = this->rotorState.pos.y;
+            curr_pos(2) = this->rotorState.pos.z;
+
             double point_ground_effect = GroundEffect(curr_pos);
-            if(point_ground_effect >= 0)
+            if(point_ground_effect > 0)
             {
                 // need to vehicle position to 1 m above ground
-                printf( "%15s", "Resetting");
 
-                this->rotorState.pos.x = 0;
-                this->rotorState.pos.y = 0;
-                this->rotorState.pos.z = 0;
-
-                this->rotorState.vel.u = 0;
-                this->rotorState.vel.v = 0;
-                this->rotorState.vel.w = 0;
+                if(accel_out(2) < 0){
+                    this->rotorState.vel.u = 0;
+                    this->rotorState.vel.v = 0;
+                    this->rotorState.vel.w = 0;
+                }
 
                 // Add normal forces
                 normal(0) = 0;
@@ -141,7 +130,6 @@ void GenericMultirotor::update()
                 // Zero out normal force
                 normal(0) = 0; normal(1) = 0; normal(2) = 0;
             }
-            */
 
 
             // R_vb matrix
@@ -160,6 +148,11 @@ void GenericMultirotor::update()
             R_vb_matrix(2,0) = sin(this->rotorState.att.theta);
             R_vb_matrix(2,1) = -sin(this->rotorState.att.phi)*cos(this->rotorState.att.theta);
             R_vb_matrix(2,2) = -cos(this->rotorState.att.phi)*cos(this->rotorState.att.theta);
+
+            if(DEBUG){
+                std::cout << R_vb_matrix << std::endl;
+            }
+
             // END R_vb matrix
 
             // T_matrix
@@ -170,15 +163,21 @@ void GenericMultirotor::update()
 
             // Torque and Force vector
             for (int p=0;p<4;p++){
-                servo_out_norm(p) = _interp1D(servo_out[p], 1100, 1900, 0, 40);
+                servo_out_norm(p) = _interp1D(servo_out[p], 1000, 1900, 0, 40);
             }
 
             if(DEBUG){
-                std::cout <<"Servos = " << servo_out_norm(0) << ", " << servo_out_norm(1)
+                std::cout <<"Servos = " << servo_out[0] << ", " << servo_out[1]
+                     << ", " << servo_out[2] << ", " << servo_out[3] <<"\n";
+                std::cout <<"Servos normed = " << servo_out_norm(0) << ", " << servo_out_norm(1)
                      << ", " << servo_out_norm(2) << ", " << servo_out_norm(3) <<"\n";
             }
 
-            Mixing << 0.1,0.1,0.1,0.1, 0,-0.05,0,0.05, 0.05,0,-0.05,0, -0.1,0.1,-0.1,0.1;
+            Mixing << 0.1,0.1,0.1,0.1,
+                    0,-0.05,0,0.05,
+                    0.05,0,-0.05,0,
+                    -0.1,0.1,-0.1,0.1;
+
             Eigen::Vector4d Forces;
             Forces = Mixing*servo_out_norm;
 
@@ -201,11 +200,13 @@ void GenericMultirotor::update()
             ang_vel_vector(2) = this->rotorState.ang_vel.r;
 
             ang_accel_out = this->Inertia_matrix.inverse()*( torque_vector - ang_vel_vector.cross(this->Inertia_matrix*ang_vel_vector));
-            accel_out = _limitVec((1.0/this->mass)*force_vector - ang_vel_vector.cross(vel_vector) - gravity,
-                               Eigen::Vector3d(2*g, 2*g, 2*g));// + normal;
+            //accel_out = _limitVec((1.0/this->mass)*force_vector - ang_vel_vector.cross(vel_vector) - gravity,
+            //                   Eigen::Vector3d(2*g, 2*g, 2*g));// + normal;
+            accel_out = (1.0/this->mass)*force_vector - ang_vel_vector.cross(vel_vector) - gravity + normal;
             ang_vel_out = T_matrix*ang_vel_vector;
 
-            vel_out = _limitVec(R_vb_matrix*vel_vector, Eigen::Vector3d(10,10,3));
+            //vel_out = _limitVec(R_vb_matrix*vel_vector, Eigen::Vector3d(10,10,3));
+            vel_out = R_vb_matrix*vel_vector;
 
             //std::cout <<"gravity + normal = " << gravity(0) + normal(0) << ", " << gravity(1) + normal(1)
             //         << ", " << gravity(2) + normal(2) <<"\n";
@@ -217,6 +218,10 @@ void GenericMultirotor::update()
             this->x_dot = vel_out(0); this->y_dot = vel_out(1); this->z_dot = vel_out(2);
 
             if(DEBUG){
+                printf( "t= %8.3f, x = %8.3f, y = %8.3f, z = %8.3f\n",
+                            this->rotorState.timestamp, this->rotorState.pos.x, this->rotorState.pos.y, this->rotorState.pos.z);
+                std::cout <<"velocity vector = " << vel_vector(0) << ", " << vel_vector(1)
+                         << ", " << vel_vector(2) <<"\n";
                 std::cout <<"accel = " << accel_out(0) << ", " << accel_out(1)
                          << ", " << accel_out(2) <<"\n";
                 std::cout <<"angles = " << this->rotorState.att.phi << ", " << this->rotorState.att.theta
@@ -235,9 +240,11 @@ void GenericMultirotor::update()
             gpkt.roll = gpkt.roll;
             gpkt.yaw = gpkt.yaw;
 
-            auto bytes_sent = gazebo_sock.sendto(&gpkt, sizeof(gpkt), "127.0.0.1", 5006);
+            auto bytes_sent = gazebo_sock.sendto(&gpkt, sizeof(gpkt), "127.0.0.1", this->gazebo_port);
 
-            std::cout << "sending " << bytes_sent << " bytes to gazebo" <<std::endl;
+            if(DEBUG){
+                std::cout << "sending " << bytes_sent << " bytes to gazebo" <<std::endl;
+            }
 
             // Send fdm integrated states to Pixhawk
             this->json->SendState(this->rotorState.timestamp,
@@ -256,6 +263,30 @@ void GenericMultirotor::update()
 void GenericMultirotor::rpt()
 {
     // Pass
+}
+
+void GenericMultirotor::PropellerPhysics(){
+
+}
+
+void GenericMultirotor::ApplyController(){
+
+}
+
+double GenericMultirotor::GroundEffect(Eigen::Vector3d pos){
+    Eigen::Vector4d plane, pos_extended;
+
+    // to check if point lies on the plane, or either of the half surfaces created by the plane
+    // take the dot product dot( [a,b,c,d], [x,y,z,1] ), where aX+bY+cZ+d = 0 is the equation of the plane
+    // and (x,y,z) is the point.
+
+    // Ground plane equation is 0X+0Y+1Z+0 = 0 i.e. Z=0
+    plane(0) = 0; plane(1) = 0; plane(2) = 1; plane(3) = 0;
+    pos_extended(0) = pos(0); pos_extended(1) = pos(1); pos_extended(2) = pos(2); pos_extended(3) = 1;
+
+    double out = pos_extended.dot(plane);
+
+    return out;
 }
 
 double GenericMultirotor::_interp1D(const double &x, const double &x0, const double &x1, const double &y0, const double &y1)

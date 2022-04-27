@@ -29,8 +29,8 @@ bool libAP_JSON::InitSockets(const char *fdm_address, const uint16_t fdm_port_in
                   << fdm_address << ":" << fdm_port_in << std::endl;
         return false;
     }
-    std::cout << "[libAP_JSON] " << "flight dynamics model at "
-              << fdm_address << ":" << fdm_port_in << std::endl;
+    //std::cout << "[libAP_JSON] " << "flight dynamics model at "
+    //          << fdm_address << ":" << fdm_port_in << std::endl;
     return true;
 }
 

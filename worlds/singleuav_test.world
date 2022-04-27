@@ -25,14 +25,14 @@
           <geometry>
             <plane>
               <normal>0 0 1</normal>
-              <size>100 100</size>
+              <size>5000 5000</size>
             </plane>
           </geometry>
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>50</mu2>
+                <mu>1</mu>
+                <mu2>1</mu2>
               </ode>
               <torsional>
                 <ode/>
@@ -45,18 +45,35 @@
           </surface>
           <max_contacts>10</max_contacts>
         </collision>
-        <visual name='visual'>
+        <visual name='runway'>
+          <pose>0 0 0.005 0 0 -3.1415</pose>
           <cast_shadows>0</cast_shadows>
           <geometry>
             <plane>
               <normal>0 0 1</normal>
-              <size>100 100</size>
+              <size>180 10</size>
             </plane>
           </geometry>
           <material>
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
+              <name>Gazebo/Runway</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='grass'>
+          <pose>0 0 -0.1 0 -0 0</pose>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>5000 5000</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grass</name>
             </script>
           </material>
         </visual>
@@ -81,11 +98,83 @@
     <wind/>
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
-      <latitude_deg>0</latitude_deg>
-      <longitude_deg>0</longitude_deg>
-      <elevation>0</elevation>
+      <latitude_deg>36.1625</latitude_deg>
+      <longitude_deg>-96.8361</longitude_deg>
+      <elevation>196</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
+    <state world_name='default'>
+      <sim_time>719 457000000</sim_time>
+      <real_time>26 129989800</real_time>
+      <wall_time>1651084261 203208500</wall_time>
+      <iterations>13689</iterations>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='iris_demo'>
+        <pose>1.11171 -1.96856 -0.000427 -0.002109 1e-06 1e-06</pose>
+        <scale>1 1 1</scale>
+        <link name='iris::base_link'>
+          <pose>1.11171 -1.96815 0.194495 -0.002109 1e-06 1e-06</pose>
+          <velocity>5e-06 2.4e-05 3.5e-05 -0.000123 2.6e-05 -0</velocity>
+          <acceleration>1e-06 -1e-06 3e-06 5e-06 3e-06 -0</acceleration>
+          <wrench>1e-06 -1e-06 5e-06 0 -0 0</wrench>
+        </link>
+        <link name='iris::iris/ground_truth/odometry_sensorgt_link'>
+          <pose>1.11171 -1.96815 0.194495 -0.002108 1e-06 1e-06</pose>
+          <velocity>5e-06 2.4e-05 3.5e-05 -0.000123 2.7e-05 7.3e-05</velocity>
+          <acceleration>1e-06 -1e-06 3e-06 4e-06 0.000323 0.153247</acceleration>
+          <wrench>0 -0 0 0 -0 0</wrench>
+        </link>
+        <link name='iris::iris/imu_link'>
+          <pose>1.11171 -1.96815 0.194495 -0.002108 1e-06 1e-06</pose>
+          <velocity>5e-06 2.4e-05 3.5e-05 -0.000123 2.7e-05 7.3e-05</velocity>
+          <acceleration>1e-06 -1e-06 3e-06 4e-06 0.000323 0.153388</acceleration>
+          <wrench>0 -0 0 0 -0 0</wrench>
+        </link>
+        <link name='iris::rotor_0'>
+          <pose>1.24171 -2.1881 0.217959 -0.002108 1e-06 -5.9e-05</pose>
+          <velocity>6e-06 2.7e-05 5.9e-05 -0.000123 2.6e-05 8e-06</velocity>
+          <acceleration>1e-06 -1e-06 2e-06 4e-06 -1e-06 -0.000274</acceleration>
+          <wrench>0 -0 0 0 -0 0</wrench>
+        </link>
+        <link name='iris::rotor_1'>
+          <pose>0.98171 -1.7681 0.217074 -0.002108 -0 -0.000144</pose>
+          <velocity>6e-06 2.7e-05 1.4e-05 -0.000123 2.6e-05 7e-06</velocity>
+          <acceleration>1e-06 -1e-06 4e-06 4e-06 -1e-06 -0.000266</acceleration>
+          <wrench>0 -0 0 0 -0 0</wrench>
+        </link>
+        <link name='iris::rotor_2'>
+          <pose>1.24171 -1.7481 0.217031 -0.002108 1e-06 -6.3e-05</pose>
+          <velocity>6e-06 2.7e-05 5e-06 -0.000123 2.6e-05 8e-06</velocity>
+          <acceleration>0 -1e-06 4e-06 4e-06 -1e-06 -0.000268</acceleration>
+          <wrench>0 -0 0 0 -0 0</wrench>
+        </link>
+        <link name='iris::rotor_3'>
+          <pose>0.98171 -2.1681 0.217917 -0.002108 -0 -0.000149</pose>
+          <velocity>6e-06 2.7e-05 6.3e-05 -0.000123 2.6e-05 7e-06</velocity>
+          <acceleration>1e-06 -1e-06 2e-06 4e-06 -1e-06 -0.000271</acceleration>
+          <wrench>0 -0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>3.81618 -4.60174 0.931934 0 0.275643 2.35619</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
     <model name='iris_demo'>
       <frame name='iris::__model__' attached_to='iris::base_link'>
         <pose relative_to='__model__'>0 0 0.194923 0 -0 0</pose>
@@ -636,8 +725,7 @@
           </ode>
         </physics>
       </joint>
-      <static>1</static>
-      <static>1</static>
+      <static>0</static>
       <plugin name='rotor_0_blade_1' filename='libLiftDragPlugin.so'>
         <a0>0.3</a0>
         <alpha_stall>1.4</alpha_stall>
@@ -831,84 +919,7 @@
           <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
         </control>
       </plugin>
-      <plugin name='CMD' filename='libCMDPlugin.so'>
-		<IPAddress>127.0.0.1</IPAddress>
-		<CMDPort>5006</CMDPort>
-		<InitialPosition>5 5 0.1 0 0 0</InitialPosition>
-	 </plugin>
-      <pose>0.015706 -0.741105 0 0 -0 0</pose>
+      <pose>1.61088 -2.18976 0 0 -0 0</pose>
     </model>
-    <state world_name='default'>
-      <sim_time>10 610000000</sim_time>
-      <real_time>34 932150700</real_time>
-      <wall_time>1649259921 365343300</wall_time>
-      <iterations>10610</iterations>
-      <model name='ground_plane'>
-        <pose>0 0 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>0 0 0 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='iris_demo'>
-        <pose>0 0 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='iris::base_link'>
-          <pose>0 0 0.194923 0 -0 0</pose>
-          <velocity>4e-06 1.3e-05 1e-06 -6.9e-05 2e-05 0</velocity>
-          <acceleration>0 -0 -0 0 -0 0</acceleration>
-          <wrench>0 -0 -0 0 -0 0</wrench>
-        </link>
-        <link name='iris::iris/ground_truth/odometry_sensorgt_link'>
-          <pose>0 0 0.194923 0 -0 0</pose>
-          <velocity>4e-06 1.3e-05 1e-06 -6.9e-05 2e-05 2.4e-05</velocity>
-          <acceleration>0 -0 -0 0 -0 0.049028</acceleration>
-          <wrench>0 -0 -0 0 -0 0</wrench>
-        </link>
-        <link name='iris::iris/imu_link'>
-          <pose>0 0 0.194923 0 -0 0</pose>
-          <velocity>4e-06 1.3e-05 1e-06 -6.9e-05 2e-05 2.4e-05</velocity>
-          <acceleration>0 -0 -0 0 -0 0.049089</acceleration>
-          <wrench>0 -0 -0 0 -0 0</wrench>
-        </link>
-        <link name='iris::rotor_0'>
-          <pose>0.13 -0.22 0.217923 0 -0 0</pose>
-          <velocity>4e-06 1.5e-05 1.4e-05 -6.9e-05 2e-05 0</velocity>
-          <acceleration>0 -0 -0 0 -0 0</acceleration>
-          <wrench>0 -0 -0 0 -0 0</wrench>
-        </link>
-        <link name='iris::rotor_1'>
-          <pose>-0.13 0.2 0.217923 0 -0 0</pose>
-          <velocity>4e-06 1.5e-05 -1e-05 -6.9e-05 2e-05 0</velocity>
-          <acceleration>0 -0 0 0 -0 0</acceleration>
-          <wrench>0 -0 0 0 -0 0</wrench>
-        </link>
-        <link name='iris::rotor_2'>
-          <pose>0.13 0.22 0.217923 0 -0 0</pose>
-          <velocity>4e-06 1.5e-05 -1.6e-05 -6.9e-05 2e-05 0</velocity>
-          <acceleration>0 -0 0 0 -0 0</acceleration>
-          <wrench>0 -0 0 0 -0 0</wrench>
-        </link>
-        <link name='iris::rotor_3'>
-          <pose>-0.13 -0.2 0.217923 0 -0 0</pose>
-          <velocity>4e-06 1.5e-05 1.8e-05 -6.9e-05 2e-05 0</velocity>
-          <acceleration>0 -0 -0 0 -0 0</acceleration>
-          <wrench>0 -0 -0 0 -0 0</wrench>
-        </link>
-      </model>
-      <light name='sun'>
-        <pose>0 0 10 0 -0 0</pose>
-      </light>
-    </state>
-    <gui fullscreen='0'>
-      <camera name='user_camera'>
-        <pose>5 -5 2 0 0.275643 2.35619</pose>
-        <view_controller>orbit</view_controller>
-        <projection_type>perspective</projection_type>
-      </camera>
-    </gui>
   </world>
 </sdf>

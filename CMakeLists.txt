@@ -14,7 +14,7 @@ endif()
 include_directories(osk/include include)
 set(OSKSOURCES osk/src/sim.cpp osk/src/block.cpp osk/src/state.cpp)
 set(SRC src/main.cpp src/simplerover.cpp src/libAP_JSON.cpp
-    src/SocketExample.cpp src/genericmultirotor.cpp)
+    src/SocketExample.cpp src/genericmultirotor.cpp src/p_utils.cpp)
 
 add_library(CMDPlugin SHARED src/CMDPlugin.cc src/SocketExample.cpp)
 target_link_libraries(CMDPlugin ${GAZEBO_LIBRARIES})
