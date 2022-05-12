@@ -19,4 +19,7 @@ set(SRC src/main.cpp src/simplerover.cpp src/libAP_JSON.cpp
 add_library(CMDPlugin SHARED src/CMDPlugin.cc src/SocketExample.cpp)
 target_link_libraries(CMDPlugin ${GAZEBO_LIBRARIES})
 
+add_library(worldPluginTest SHARED src/worldPluginTest.cc)
+target_link_libraries(worldPluginTest ${GAZEBO_LIBRARIES})
+
 add_executable(PhysicsEngine ${SRC} ${OSKSOURCES})

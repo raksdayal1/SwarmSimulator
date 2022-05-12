@@ -11,8 +11,8 @@
 
 #include <math.h>
 #include <stdlib.h>
-#include <Eigen/Core>
-#include <Eigen/Dense>
+#include <eigen3/Eigen/Core>
+#include <eigen3/Eigen/Dense>
 
 #include "libAP_JSON.h"
 #include "SocketExample.h"
