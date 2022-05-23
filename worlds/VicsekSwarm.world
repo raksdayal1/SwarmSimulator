@@ -104,10 +104,10 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name='default'>
-      <sim_time>735 617000000</sim_time>
-      <real_time>83 519286500</real_time>
-      <wall_time>1652904868 232200300</wall_time>
-      <iterations>29849</iterations>
+      <sim_time>744 816000000</sim_time>
+      <real_time>37 881902700</real_time>
+      <wall_time>1652905942 470225400</wall_time>
+      <iterations>9199</iterations>
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -119,141 +119,233 @@
         </link>
       </model>
       <model name='iris_demo'>
-        <pose>1.11171 -1.96851 -0.000424 -0.00212 -3e-06 1e-06</pose>
+        <pose>1.11171 -1.96849 -0.000423 -0.002125 2e-06 1e-06</pose>
         <scale>1 1 1</scale>
         <link name='iris::base_link'>
-          <pose>1.11171 -1.9681 0.194498 -0.00212 -3e-06 1e-06</pose>
+          <pose>1.11171 -1.96807 0.1945 -0.002125 2e-06 1e-06</pose>
+          <velocity>-6.3e-05 3.2e-05 1.4e-05 -0.000163 -0.000321 -1e-06</velocity>
+          <acceleration>-0.001261 0.000526 0.000247 -0.00267 -0.006429 -1.1e-05</acceleration>
+          <wrench>-0.001892 0.000789 0.000371 0 -0 0</wrench>
+        </link>
+        <link name='iris::iris/ground_truth/odometry_sensorgt_link'>
+          <pose>1.11171 -1.96807 0.1945 -0.002125 3e-06 1e-06</pose>
+          <velocity>-7.2e-05 3.2e-05 1.4e-05 -0.000137 -0.00021 2.7e-05</velocity>
+          <acceleration>0.000633 0.000665 0.000261 -0.006572 -0.029123 0.019827</acceleration>
+          <wrench>9.5e-05 0.0001 3.9e-05 0 -0 0</wrench>
+        </link>
+        <link name='iris::iris/imu_link'>
+          <pose>1.11171 -1.96807 0.1945 -0.002125 3e-06 1e-06</pose>
+          <velocity>-7.2e-05 3.2e-05 1.4e-05 -0.000137 -0.000209 2.7e-05</velocity>
+          <acceleration>0.000563 0.000642 0.000259 -0.006563 -0.029136 0.019784</acceleration>
+          <wrench>8.4e-05 9.6e-05 3.9e-05 0 -0 0</wrench>
+        </link>
+        <link name='iris::rotor_0'>
+          <pose>1.24171 -2.18802 0.217967 -0.002125 3e-06 -5.6e-05</pose>
+          <velocity>-8.9e-05 2.8e-05 7.1e-05 -0.000137 -0.00021 -1.4e-05</velocity>
+          <acceleration>0.002397 0.002314 0.00549 -0.006536 -0.029186 -0.002123</acceleration>
+          <wrench>6e-05 5.8e-05 0.000137 0 -0 0</wrench>
+        </link>
+        <link name='iris::rotor_1'>
+          <pose>0.981711 -1.76802 0.217075 -0.002125 2e-06 -0.000157</pose>
+          <velocity>-6.5e-05 4.3e-05 -4.1e-05 -0.000137 -0.000209 -1.4e-05</velocity>
+          <acceleration>-0.002477 -0.000729 -0.004838 -0.00642 -0.02922 -0.002059</acceleration>
+          <wrench>-6.2e-05 -1.8e-05 -0.000121 0 -0 0</wrench>
+        </link>
+        <link name='iris::rotor_2'>
+          <pose>1.24171 -1.74802 0.217032 -0.002125 3e-06 -6.1e-05</pose>
+          <velocity>-6.4e-05 2.8e-05 1.1e-05 -0.000137 -0.000209 -1.4e-05</velocity>
+          <acceleration>-0.002739 0.002271 0.002647 -0.006449 -0.029253 -0.002091</acceleration>
+          <wrench>-6.8e-05 5.7e-05 6.6e-05 0 -0 0</wrench>
+        </link>
+        <link name='iris::rotor_3'>
+          <pose>0.981711 -2.16803 0.217925 -0.002125 2e-06 -0.000163</pose>
+          <velocity>-8.8e-05 4.3e-05 1.4e-05 -0.000138 -0.000209 -1.5e-05</velocity>
+          <acceleration>0.002132 -0.000781 -0.002319 -0.006152 -0.029356 -0.002113</acceleration>
+          <wrench>5.3e-05 -2e-05 -5.8e-05 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='iris_demo_0'>
+        <pose>2.03885 -0.803226 -0.000425 -0.002116 -2e-06 0</pose>
+        <scale>1 1 1</scale>
+        <link name='iris::base_link'>
+          <pose>2.03885 -0.802814 0.194497 -0.002116 -2e-06 0</pose>
           <velocity>-5e-06 2.4e-05 3.5e-05 -0.000123 -2.6e-05 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
         <link name='iris::iris/ground_truth/odometry_sensorgt_link'>
-          <pose>1.11171 -1.9681 0.194498 -0.00212 -3e-06 1e-06</pose>
+          <pose>2.03885 -0.802814 0.194497 -0.002116 -2e-06 0</pose>
           <velocity>-5e-06 2.4e-05 3.5e-05 -0.000123 -2.6e-05 8e-05</velocity>
-          <acceleration>0 0 0 0 0.000325 0.153044</acceleration>
+          <acceleration>0 0 0 0 0.000324 0.153037</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
         <link name='iris::iris/imu_link'>
-          <pose>1.11171 -1.9681 0.194498 -0.00212 -3e-06 1e-06</pose>
-          <velocity>-5e-06 2.4e-05 3.5e-05 -0.000123 -2.6e-05 8e-05</velocity>
-          <acceleration>0 0 0 -0 0.000325 0.153185</acceleration>
+          <pose>2.03885 -0.802814 0.194497 -0.002116 -2e-06 0</pose>
+          <velocity>-5e-06 2.4e-05 3.5e-05 -0.000123 -2.7e-05 -7.4e-05</velocity>
+          <acceleration>0 0 0 0 -0.000325 -0.153878</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
         <link name='iris::rotor_0'>
-          <pose>1.24171 -2.18805 0.217965 -0.00212 -3e-06 -5e-05</pose>
-          <velocity>-6e-06 2.7e-05 6.6e-05 -0.000123 -2.6e-05 5e-06</velocity>
-          <acceleration>0 0 0 0 0 -2.3e-05</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
+          <pose>2.16885 -1.02276 0.217963 -0.002116 -2e-06 -5.9e-05</pose>
+          <velocity>-6e-06 2.7e-05 6.6e-05 -0.000123 -2.6e-05 6e-06</velocity>
+          <acceleration>0 0 -0 0 0 -5e-05</acceleration>
+          <wrench>0 0 -0 0 -0 0</wrench>
         </link>
         <link name='iris::rotor_1'>
-          <pose>0.981709 -1.76805 0.217074 -0.00212 -3e-06 -0.000146</pose>
-          <velocity>-6e-06 2.7e-05 7e-06 -0.000123 -2.6e-05 4e-06</velocity>
-          <acceleration>0 0 0 0 0 -2.2e-05</acceleration>
+          <pose>1.90885 -0.602765 0.217074 -0.002116 -2e-06 -8.8e-05</pose>
+          <velocity>-6e-06 2.7e-05 7e-06 -0.000123 -2.6e-05 5e-06</velocity>
+          <acceleration>0 0 0 0 0 -4.8e-05</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
         <link name='iris::rotor_2'>
-          <pose>1.24171 -1.74805 0.217032 -0.00212 -3e-06 -5.5e-05</pose>
-          <velocity>-6e-06 2.7e-05 1.1e-05 -0.000123 -2.6e-05 4e-06</velocity>
-          <acceleration>0 0 -0 0 0 -2.2e-05</acceleration>
+          <pose>2.16885 -0.582765 0.217032 -0.002116 -2e-06 -5.9e-05</pose>
+          <velocity>-6e-06 2.7e-05 1.1e-05 -0.000123 -2.6e-05 6e-06</velocity>
+          <acceleration>0 0 -0 0 0 -4.9e-05</acceleration>
           <wrench>0 0 -0 0 -0 0</wrench>
         </link>
         <link name='iris::rotor_3'>
-          <pose>0.981709 -2.16805 0.217922 -0.00212 -3e-06 -0.000151</pose>
-          <velocity>-6e-06 2.7e-05 5.6e-05 -0.000123 -2.6e-05 4e-06</velocity>
-          <acceleration>0 0 0 0 0 -2.3e-05</acceleration>
+          <pose>1.90885 -1.00276 0.21792 -0.002116 -2e-06 -9.1e-05</pose>
+          <velocity>-6e-06 2.7e-05 5.6e-05 -0.000123 -2.6e-05 5e-06</velocity>
+          <acceleration>0 0 0 0 0 -4.9e-05</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='iris_demo_0'>
-        <pose>2.03885 -0.803252 -0.000427 -0.00211 -1e-06 0</pose>
+      <model name='iris_demo_1'>
+        <pose>-0.604055 -3.46546 -0.000428 -0.002107 1e-06 1e-06</pose>
         <scale>1 1 1</scale>
         <link name='iris::base_link'>
-          <pose>2.03885 -0.80284 0.194496 -0.00211 -1e-06 0</pose>
-          <velocity>-5e-06 2.4e-05 3.5e-05 -0.000123 -2.6e-05 0</velocity>
-          <acceleration>-0 -0 -0 0 -0 0</acceleration>
-          <wrench>-0 -0 -0 0 -0 0</wrench>
+          <pose>-0.604055 -3.46505 0.194495 -0.002107 1e-06 1e-06</pose>
+          <velocity>5e-06 2.4e-05 3.5e-05 -0.000123 2.6e-05 -0</velocity>
+          <acceleration>7e-06 -1.1e-05 3.8e-05 5.8e-05 3.4e-05 0</acceleration>
+          <wrench>1e-05 -1.7e-05 5.7e-05 0 -0 0</wrench>
         </link>
         <link name='iris::iris/ground_truth/odometry_sensorgt_link'>
-          <pose>2.03885 -0.80284 0.194496 -0.00211 -1e-06 0</pose>
-          <velocity>-5e-06 2.4e-05 3.5e-05 -0.000123 -2.7e-05 -7.3e-05</velocity>
-          <acceleration>-0 -0 -0 0 -0.000323 -0.153244</acceleration>
-          <wrench>-0 -0 -0 0 -0 0</wrench>
+          <pose>-0.604055 -3.46505 0.194495 -0.002107 1e-06 1e-06</pose>
+          <velocity>5e-06 2.4e-05 3.5e-05 -0.000123 2.6e-05 -8.1e-05</velocity>
+          <acceleration>1e-05 -1.2e-05 3.8e-05 5.4e-05 -0.000323 -0.153111</acceleration>
+          <wrench>1e-06 -2e-06 6e-06 0 -0 0</wrench>
         </link>
         <link name='iris::iris/imu_link'>
-          <pose>2.03885 -0.80284 0.194496 -0.00211 -1e-06 0</pose>
-          <velocity>-5e-06 2.4e-05 3.5e-05 -0.000123 -2.7e-05 -7.3e-05</velocity>
-          <acceleration>-0 -0 -0 0 -0.000324 -0.153351</acceleration>
-          <wrench>-0 -0 -0 0 -0 0</wrench>
+          <pose>-0.604055 -3.46505 0.194495 -0.002107 1e-06 1e-06</pose>
+          <velocity>5e-06 2.4e-05 3.5e-05 -0.000123 2.6e-05 -8.1e-05</velocity>
+          <acceleration>9e-06 -1.2e-05 3.8e-05 5.4e-05 -0.000324 -0.153222</acceleration>
+          <wrench>1e-06 -2e-06 6e-06 0 -0 0</wrench>
         </link>
         <link name='iris::rotor_0'>
-          <pose>2.16885 -1.02279 0.21796 -0.00211 -1e-06 -3.5e-05</pose>
-          <velocity>-6e-06 2.7e-05 6.6e-05 -0.000123 -2.6e-05 -4e-06</velocity>
-          <acceleration>-0 -0 -0 0 -0 0.000192</acceleration>
-          <wrench>-0 -0 -0 0 -0 0</wrench>
+          <pose>-0.474055 -3.685 0.217958 -0.002107 1e-06 -7e-06</pose>
+          <velocity>6e-06 2.7e-05 5.9e-05 -0.000123 2.6e-05 1e-05</velocity>
+          <acceleration>1.3e-05 -1.1e-05 2.6e-05 5.4e-05 -2e-06 -0.000337</acceleration>
+          <wrench>0 -0 1e-06 0 -0 0</wrench>
         </link>
         <link name='iris::rotor_1'>
-          <pose>1.90885 -0.602792 0.217073 -0.00211 -1e-06 -5.9e-05</pose>
-          <velocity>-6e-06 2.7e-05 7e-06 -0.000123 -2.6e-05 -5e-06</velocity>
-          <acceleration>-0 -0 -0 0 -0 0.000187</acceleration>
-          <wrench>-0 -0 -0 0 -0 0</wrench>
+          <pose>-0.734056 -3.265 0.217073 -0.002107 1e-06 -1.4e-05</pose>
+          <velocity>6e-06 2.7e-05 1.4e-05 -0.000123 2.6e-05 1e-05</velocity>
+          <acceleration>6e-06 -1.5e-05 4.9e-05 5.4e-05 -2e-06 -0.000326</acceleration>
+          <wrench>0 -0 1e-06 0 -0 0</wrench>
         </link>
         <link name='iris::rotor_2'>
-          <pose>2.16885 -0.582792 0.217032 -0.00211 -1e-06 -3.5e-05</pose>
-          <velocity>-6e-06 2.7e-05 1.1e-05 -0.000123 -2.6e-05 -4e-06</velocity>
-          <acceleration>-0 -0 -0 0 -0 0.00019</acceleration>
-          <wrench>-0 -0 -0 0 -0 0</wrench>
+          <pose>-0.474056 -3.245 0.217031 -0.002107 1e-06 -7e-06</pose>
+          <velocity>6e-06 2.7e-05 4e-06 -0.000123 2.6e-05 1e-05</velocity>
+          <acceleration>6e-06 -1.1e-05 5e-05 5.3e-05 -2e-06 -0.000329</acceleration>
+          <wrench>0 -0 1e-06 0 -0 0</wrench>
         </link>
         <link name='iris::rotor_3'>
-          <pose>1.90885 -1.00279 0.217917 -0.00211 -1e-06 -6.1e-05</pose>
-          <velocity>-6e-06 2.7e-05 5.6e-05 -0.000123 -2.6e-05 -5e-06</velocity>
-          <acceleration>-0 -0 -0 0 -0 0.000193</acceleration>
-          <wrench>-0 -0 -0 0 -0 0</wrench>
+          <pose>-0.734055 -3.665 0.217916 -0.002107 1e-06 -1.5e-05</pose>
+          <velocity>6e-06 2.7e-05 6.3e-05 -0.000123 2.6e-05 1e-05</velocity>
+          <acceleration>1.2e-05 -1.5e-05 2.7e-05 5.3e-05 -2e-06 -0.000333</acceleration>
+          <wrench>0 -0 1e-06 0 -0 0</wrench>
         </link>
       </model>
-      <model name='iris_demo_1'>
-        <pose>-0.604055 -3.46548 -0.000423 -0.002124 -3e-06 1e-06</pose>
+      <model name='iris_demo_2'>
+        <pose>6.38481 -8.14404 -0.000427 -0.002109 1e-06 1e-06</pose>
         <scale>1 1 1</scale>
         <link name='iris::base_link'>
-          <pose>-0.604056 -3.46507 0.1945 -0.002124 -3e-06 1e-06</pose>
-          <velocity>-1e-06 3.1e-05 1.2e-05 -0.000159 -5e-06 0</velocity>
-          <acceleration>-0.000493 -0.000753 0.002699 0.003858 -0.002527 4e-06</acceleration>
-          <wrench>-0.000739 -0.001129 0.004048 0 -0 0</wrench>
+          <pose>6.38481 -8.14363 0.194495 -0.002109 1e-06 1e-06</pose>
+          <velocity>5e-06 2.4e-05 3.5e-05 -0.000123 2.6e-05 -0</velocity>
+          <acceleration>0 -0 1e-06 1e-06 1e-06 0</acceleration>
+          <wrench>0 -0 1e-06 0 -0 0</wrench>
         </link>
         <link name='iris::iris/ground_truth/odometry_sensorgt_link'>
-          <pose>-0.604056 -3.46507 0.1945 -0.002124 -4e-06 1e-06</pose>
-          <velocity>-3e-06 3.1e-05 1.2e-05 -0.000164 1.9e-05 9.2e-05</velocity>
-          <acceleration>1.5e-05 -0.000759 0.0027 0.005342 -0.008222 0.179309</acceleration>
-          <wrench>2e-06 -0.000114 0.000405 0 -0 0</wrench>
+          <pose>6.38481 -8.14363 0.194495 -0.002108 1e-06 1e-06</pose>
+          <velocity>5e-06 2.4e-05 3.5e-05 -0.000123 2.7e-05 7.4e-05</velocity>
+          <acceleration>0 -0 1e-06 1e-06 0.000322 0.153809</acceleration>
+          <wrench>0 -0 0 0 -0 0</wrench>
         </link>
         <link name='iris::iris/imu_link'>
-          <pose>-0.604056 -3.46507 0.1945 -0.002124 -4e-06 1e-06</pose>
-          <velocity>-3e-06 3.1e-05 1.2e-05 -0.000164 1.9e-05 -8.5e-05</velocity>
-          <acceleration>-3e-06 -0.000755 0.0027 0.00534 -0.008987 -0.17937</acceleration>
-          <wrench>-1e-06 -0.000113 0.000405 0 -0 0</wrench>
+          <pose>6.38481 -8.14363 0.194495 -0.002108 1e-06 1e-06</pose>
+          <velocity>5e-06 2.4e-05 3.5e-05 -0.000123 2.7e-05 7.4e-05</velocity>
+          <acceleration>0 -0 1e-06 1e-06 0.000322 0.154053</acceleration>
+          <wrench>0 -0 0 0 -0 0</wrench>
         </link>
         <link name='iris::rotor_0'>
-          <pose>-0.474055 -3.68502 0.217967 -0.002124 -4e-06 -1.3e-05</pose>
-          <velocity>-5e-06 3.3e-05 4.5e-05 -0.000164 1.9e-05 5e-06</velocity>
-          <acceleration>0.000472 -0.000463 0.002648 0.005341 -0.008608 -2e-05</acceleration>
-          <wrench>1.2e-05 -1.2e-05 6.6e-05 0 -0 0</wrench>
+          <pose>6.51481 -8.36358 0.217959 -0.002108 1e-06 -1e-06</pose>
+          <velocity>6e-06 2.7e-05 5.9e-05 -0.000123 2.6e-05 8e-06</velocity>
+          <acceleration>1e-06 -0 1e-06 1e-06 -3e-06 -0.00028</acceleration>
+          <wrench>0 -0 0 0 -0 0</wrench>
         </link>
         <link name='iris::rotor_1'>
-          <pose>-0.734056 -3.26502 0.217074 -0.002124 -4e-06 -1.4e-05</pose>
-          <velocity>-0 3.6e-05 -1.9e-05 -0.000164 1.9e-05 4e-06</velocity>
-          <acceleration>-0.000836 -0.00127 0.002632 0.005283 -0.008638 -1.9e-05</acceleration>
-          <wrench>-2.1e-05 -3.2e-05 6.6e-05 0 -0 0</wrench>
+          <pose>6.25481 -7.94358 0.217074 -0.002108 1e-06 -5e-06</pose>
+          <velocity>6e-06 2.7e-05 1.4e-05 -0.000123 2.6e-05 7e-06</velocity>
+          <acceleration>0 -0 0 1e-06 -3e-06 -0.000271</acceleration>
+          <wrench>0 -0 0 0 -0 0</wrench>
         </link>
         <link name='iris::rotor_2'>
-          <pose>-0.474056 -3.24502 0.217033 -0.002124 -4e-06 -1.3e-05</pose>
-          <velocity>0 3.3e-05 -2.7e-05 -0.000164 1.9e-05 5e-06</velocity>
-          <acceleration>-0.00091 -0.000462 0.004976 0.005228 -0.008664 -1.9e-05</acceleration>
-          <wrench>-2.3e-05 -1.2e-05 0.000124 0 -0 0</wrench>
+          <pose>6.51481 -7.92359 0.217031 -0.002108 1e-06 -1e-06</pose>
+          <velocity>6e-06 2.7e-05 5e-06 -0.000123 2.6e-05 8e-06</velocity>
+          <acceleration>0 -0 1e-06 1e-06 -3e-06 -0.000274</acceleration>
+          <wrench>0 -0 0 0 -0 0</wrench>
         </link>
         <link name='iris::rotor_3'>
-          <pose>-0.734055 -3.66502 0.217924 -0.002124 -4e-06 -1.5e-05</pose>
-          <velocity>-5e-06 3.7e-05 4.7e-05 -0.000164 2e-05 4e-06</velocity>
-          <acceleration>0.000397 -0.001283 0.000528 0.005226 -0.008673 -2e-05</acceleration>
-          <wrench>1e-05 -3.2e-05 1.3e-05 0 -0 0</wrench>
+          <pose>6.25481 -8.34358 0.217917 -0.002108 1e-06 -5e-06</pose>
+          <velocity>6e-06 2.7e-05 6.3e-05 -0.000123 2.6e-05 7e-06</velocity>
+          <acceleration>1e-06 -0 0 1e-06 -3e-06 -0.000277</acceleration>
+          <wrench>0 -0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='iris_demo_3'>
+        <pose>5.10713 2.95156 -0.000424 -0.002119 -3e-06 1e-06</pose>
+        <scale>1 1 1</scale>
+        <link name='iris::base_link'>
+          <pose>5.10713 2.95198 0.194498 -0.002119 -3e-06 1e-06</pose>
+          <velocity>-5e-06 2.4e-05 3.5e-05 -0.000123 -2.6e-05 0</velocity>
+          <acceleration>0 0 -0 0 -0 0</acceleration>
+          <wrench>0 0 -0 0 -0 0</wrench>
+        </link>
+        <link name='iris::iris/ground_truth/odometry_sensorgt_link'>
+          <pose>5.10713 2.95198 0.194498 -0.002119 -3e-06 1e-06</pose>
+          <velocity>-5e-06 2.4e-05 3.5e-05 -0.000123 -2.6e-05 8.1e-05</velocity>
+          <acceleration>0 0 0 -0 0.000325 0.153547</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='iris::iris/imu_link'>
+          <pose>5.10713 2.95198 0.194498 -0.002119 -3e-06 1e-06</pose>
+          <velocity>-5e-06 2.4e-05 3.5e-05 -0.000123 -2.6e-05 8e-05</velocity>
+          <acceleration>0 0 0 0 0.000325 0.153483</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='iris::rotor_0'>
+          <pose>5.23713 2.73203 0.217965 -0.002119 -3e-06 -4e-06</pose>
+          <velocity>-6e-06 2.7e-05 6.6e-05 -0.000123 -2.6e-05 2e-06</velocity>
+          <acceleration>0 0 -0 0 -0 3.4e-05</acceleration>
+          <wrench>0 0 -0 0 -0 0</wrench>
+        </link>
+        <link name='iris::rotor_1'>
+          <pose>4.97713 3.15202 0.217074 -0.002119 -3e-06 -7e-06</pose>
+          <velocity>-6e-06 2.7e-05 7e-06 -0.000123 -2.6e-05 1e-06</velocity>
+          <acceleration>0 0 0 0 -0 3.3e-05</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='iris::rotor_2'>
+          <pose>5.23713 3.17202 0.217032 -0.002119 -3e-06 -4e-06</pose>
+          <velocity>-6e-06 2.7e-05 1.1e-05 -0.000123 -2.6e-05 2e-06</velocity>
+          <acceleration>0 0 -0 0 -0 3.4e-05</acceleration>
+          <wrench>0 0 -0 0 -0 0</wrench>
+        </link>
+        <link name='iris::rotor_3'>
+          <pose>4.97713 2.75203 0.217922 -0.002119 -3e-06 -7e-06</pose>
+          <velocity>-6e-06 2.7e-05 5.6e-05 -0.000123 -2.6e-05 2e-06</velocity>
+          <acceleration>0 0 0 0 -0 3.4e-05</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <light name='sun'>
@@ -262,7 +354,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>8.48637 -10.8951 2.62472 0 0.275643 2.35619</pose>
+        <pose>10.7446 -13.3454 3.5301 0 0.275643 2.35619</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -2504,6 +2596,1498 @@
         </control>
       </plugin>
       <pose>-0.604055 -3.46549 -0.000427 -0.002109 1e-06 1e-06</pose>
+    </model>
+    <model name='iris_demo_2'>
+      <frame name='iris::__model__' attached_to='iris::base_link'>
+        <pose relative_to='__model__'>0 0 0.194923 0 -0 0</pose>
+      </frame>
+      <link name='iris::base_link'>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1.5</mass>
+          <inertia>
+            <ixx>0.008</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.015</iyy>
+            <iyz>0</iyz>
+            <izz>0.017</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_link_collision'>
+          <pose>0 0 -0.08 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.47 0.47 0.23</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <max_vel>100</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='base_link_visual'>
+          <geometry>
+            <mesh>
+              <uri>model://iris_with_standoffs/meshes/iris.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='front_left_leg_visual'>
+          <pose>0.123 0.22 -0.11 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.005</radius>
+              <length>0.17</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/FlatBlack</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='front_right_leg_visual'>
+          <pose>0.123 -0.22 -0.11 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.005</radius>
+              <length>0.17</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/FlatBlack</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='rear_left_leg_visual'>
+          <pose>-0.14 0.21 -0.11 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.005</radius>
+              <length>0.17</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/FlatBlack</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='rear_right_leg_visual'>
+          <pose>-0.14 -0.21 -0.11 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.005</radius>
+              <length>0.17</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/FlatBlack</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <pose relative_to='iris::__model__'>0 0 0 0 -0 0</pose>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='iris::iris/ground_truth/odometry_sensorgt_link'>
+        <pose relative_to='iris::__model__'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.15</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0002</iyy>
+            <iyz>0</iyz>
+            <izz>0.0002</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='iris::iris/ground_truth/odometry_sensorgt_joint' type='revolute'>
+        <child>iris::iris/ground_truth/odometry_sensorgt_link</child>
+        <parent>iris::base_link</parent>
+        <axis>
+          <xyz expressed_in='iris::__model__'>0 0 1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='iris::iris/imu_link'>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.15</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2e-05</iyy>
+            <iyz>0</iyz>
+            <izz>2e-05</izz>
+          </inertia>
+        </inertial>
+        <sensor name='imu_sensor' type='imu'>
+          <pose>0 0 0 -3.14159 -0 0</pose>
+          <always_on>1</always_on>
+          <update_rate>1000</update_rate>
+          <imu/>
+        </sensor>
+        <pose relative_to='iris::__model__'>0 0 0 0 -0 0</pose>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='iris::iris/imu_joint' type='revolute'>
+        <child>iris::iris/imu_link</child>
+        <parent>iris::base_link</parent>
+        <axis>
+          <xyz expressed_in='iris::__model__'>0 0 1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='iris::rotor_0'>
+        <pose relative_to='iris::__model__'>0.13 -0.22 0.023 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>9.75e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000166704</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167604</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_0_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.005</length>
+              <radius>0.1</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rotor_0_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://iris_with_standoffs/meshes/iris_prop_ccw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='iris::rotor_0_joint' type='revolute'>
+        <child>iris::rotor_0</child>
+        <parent>iris::base_link</parent>
+        <axis>
+          <xyz expressed_in='iris::__model__'>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0.004</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='iris::rotor_1'>
+        <pose relative_to='iris::__model__'>-0.13 0.2 0.023 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>9.75e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000166704</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167604</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_1_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.005</length>
+              <radius>0.1</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rotor_1_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://iris_with_standoffs/meshes/iris_prop_ccw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='iris::rotor_1_joint' type='revolute'>
+        <child>iris::rotor_1</child>
+        <parent>iris::base_link</parent>
+        <axis>
+          <xyz expressed_in='iris::__model__'>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0.004</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='iris::rotor_2'>
+        <pose relative_to='iris::__model__'>0.13 0.22 0.023 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>9.75e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000166704</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167604</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_2_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.005</length>
+              <radius>0.1</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rotor_2_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://iris_with_standoffs/meshes/iris_prop_cw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='iris::rotor_2_joint' type='revolute'>
+        <child>iris::rotor_2</child>
+        <parent>iris::base_link</parent>
+        <axis>
+          <xyz expressed_in='iris::__model__'>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0.004</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='iris::rotor_3'>
+        <pose relative_to='iris::__model__'>-0.13 -0.2 0.023 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>9.75e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000166704</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167604</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_3_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.005</length>
+              <radius>0.1</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rotor_3_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://iris_with_standoffs/meshes/iris_prop_cw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='iris::rotor_3_joint' type='revolute'>
+        <child>iris::rotor_3</child>
+        <parent>iris::base_link</parent>
+        <axis>
+          <xyz expressed_in='iris::__model__'>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0.004</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <static>0</static>
+      <plugin name='rotor_0_blade_1' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>0.084 0 0</cp>
+        <forward>0 1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_0</link_name>
+      </plugin>
+      <plugin name='rotor_0_blade_2' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>-0.084 0 0</cp>
+        <forward>0 -1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_0</link_name>
+      </plugin>
+      <plugin name='rotor_1_blade_1' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>0.084 0 0</cp>
+        <forward>0 1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_1</link_name>
+      </plugin>
+      <plugin name='rotor_1_blade_2' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>-0.084 0 0</cp>
+        <forward>0 -1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_1</link_name>
+      </plugin>
+      <plugin name='rotor_2_blade_1' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>0.084 0 0</cp>
+        <forward>0 -1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_2</link_name>
+      </plugin>
+      <plugin name='rotor_2_blade_2' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>-0.084 0 0</cp>
+        <forward>0 1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_2</link_name>
+      </plugin>
+      <plugin name='rotor_3_blade_1' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>0.084 0 0</cp>
+        <forward>0 -1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_3</link_name>
+      </plugin>
+      <plugin name='rotor_3_blade_2' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>-0.084 0 0</cp>
+        <forward>0 1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_3</link_name>
+      </plugin>
+      <plugin name='arducopter_plugin' filename='libArduPilotPlugin.so'>
+        <fdm_addr>127.0.0.1</fdm_addr>
+        <fdm_port_in>9032</fdm_port_in>
+        <fdm_port_out>9033</fdm_port_out>
+        <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
+        <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
+        <imuName>iris_demo_2::iris::iris/imu_link::imu_sensor</imuName>
+        <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+        <control channel='0'>
+          <type>VELOCITY</type>
+          <offset>0</offset>
+          <p_gain>0.20</p_gain>
+          <i_gain>0</i_gain>
+          <d_gain>0</d_gain>
+          <i_max>0</i_max>
+          <i_min>0</i_min>
+          <cmd_max>2.5</cmd_max>
+          <cmd_min>-2.5</cmd_min>
+          <jointName>iris::rotor_0_joint</jointName>
+          <multiplier>838</multiplier>
+          <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
+        </control>
+        <control channel='1'>
+          <type>VELOCITY</type>
+          <offset>0</offset>
+          <p_gain>0.20</p_gain>
+          <i_gain>0</i_gain>
+          <d_gain>0</d_gain>
+          <i_max>0</i_max>
+          <i_min>0</i_min>
+          <cmd_max>2.5</cmd_max>
+          <cmd_min>-2.5</cmd_min>
+          <jointName>iris::rotor_1_joint</jointName>
+          <multiplier>838</multiplier>
+          <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
+        </control>
+        <control channel='2'>
+          <type>VELOCITY</type>
+          <offset>0</offset>
+          <p_gain>0.20</p_gain>
+          <i_gain>0</i_gain>
+          <d_gain>0</d_gain>
+          <i_max>0</i_max>
+          <i_min>0</i_min>
+          <cmd_max>2.5</cmd_max>
+          <cmd_min>-2.5</cmd_min>
+          <jointName>iris::rotor_2_joint</jointName>
+          <multiplier>-838</multiplier>
+          <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
+        </control>
+        <control channel='3'>
+          <type>VELOCITY</type>
+          <offset>0</offset>
+          <p_gain>0.20</p_gain>
+          <i_gain>0</i_gain>
+          <d_gain>0</d_gain>
+          <i_max>0</i_max>
+          <i_min>0</i_min>
+          <cmd_max>2.5</cmd_max>
+          <cmd_min>-2.5</cmd_min>
+          <jointName>iris::rotor_3_joint</jointName>
+          <multiplier>-838</multiplier>
+          <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
+        </control>
+      </plugin>
+      <pose>6.38481 -8.14406 -0.000426 -0.002115 -2e-06 1e-06</pose>
+    </model>
+    <model name='iris_demo_3'>
+      <frame name='iris::__model__' attached_to='iris::base_link'>
+        <pose relative_to='__model__'>0 0 0.194923 0 -0 0</pose>
+      </frame>
+      <link name='iris::base_link'>
+        <velocity_decay>
+          <linear>0</linear>
+          <angular>0</angular>
+        </velocity_decay>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1.5</mass>
+          <inertia>
+            <ixx>0.008</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.015</iyy>
+            <iyz>0</iyz>
+            <izz>0.017</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_link_collision'>
+          <pose>0 0 -0.08 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.47 0.47 0.23</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <max_vel>100</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='base_link_visual'>
+          <geometry>
+            <mesh>
+              <uri>model://iris_with_standoffs/meshes/iris.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='front_left_leg_visual'>
+          <pose>0.123 0.22 -0.11 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.005</radius>
+              <length>0.17</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/FlatBlack</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='front_right_leg_visual'>
+          <pose>0.123 -0.22 -0.11 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.005</radius>
+              <length>0.17</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/FlatBlack</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='rear_left_leg_visual'>
+          <pose>-0.14 0.21 -0.11 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.005</radius>
+              <length>0.17</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/FlatBlack</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='rear_right_leg_visual'>
+          <pose>-0.14 -0.21 -0.11 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.005</radius>
+              <length>0.17</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/FlatBlack</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <pose relative_to='iris::__model__'>0 0 0 0 -0 0</pose>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='iris::iris/ground_truth/odometry_sensorgt_link'>
+        <pose relative_to='iris::__model__'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.15</mass>
+          <inertia>
+            <ixx>0.0001</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0002</iyy>
+            <iyz>0</iyz>
+            <izz>0.0002</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='iris::iris/ground_truth/odometry_sensorgt_joint' type='revolute'>
+        <child>iris::iris/ground_truth/odometry_sensorgt_link</child>
+        <parent>iris::base_link</parent>
+        <axis>
+          <xyz expressed_in='iris::__model__'>0 0 1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='iris::iris/imu_link'>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.15</mass>
+          <inertia>
+            <ixx>1e-05</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2e-05</iyy>
+            <iyz>0</iyz>
+            <izz>2e-05</izz>
+          </inertia>
+        </inertial>
+        <sensor name='imu_sensor' type='imu'>
+          <pose>0 0 0 -3.14159 -0 0</pose>
+          <always_on>1</always_on>
+          <update_rate>1000</update_rate>
+          <imu/>
+        </sensor>
+        <pose relative_to='iris::__model__'>0 0 0 0 -0 0</pose>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='iris::iris/imu_joint' type='revolute'>
+        <child>iris::iris/imu_link</child>
+        <parent>iris::base_link</parent>
+        <axis>
+          <xyz expressed_in='iris::__model__'>0 0 1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='iris::rotor_0'>
+        <pose relative_to='iris::__model__'>0.13 -0.22 0.023 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>9.75e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000166704</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167604</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_0_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.005</length>
+              <radius>0.1</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rotor_0_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://iris_with_standoffs/meshes/iris_prop_ccw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='iris::rotor_0_joint' type='revolute'>
+        <child>iris::rotor_0</child>
+        <parent>iris::base_link</parent>
+        <axis>
+          <xyz expressed_in='iris::__model__'>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0.004</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='iris::rotor_1'>
+        <pose relative_to='iris::__model__'>-0.13 0.2 0.023 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>9.75e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000166704</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167604</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_1_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.005</length>
+              <radius>0.1</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rotor_1_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://iris_with_standoffs/meshes/iris_prop_ccw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='iris::rotor_1_joint' type='revolute'>
+        <child>iris::rotor_1</child>
+        <parent>iris::base_link</parent>
+        <axis>
+          <xyz expressed_in='iris::__model__'>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0.004</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='iris::rotor_2'>
+        <pose relative_to='iris::__model__'>0.13 0.22 0.023 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>9.75e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000166704</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167604</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_2_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.005</length>
+              <radius>0.1</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rotor_2_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://iris_with_standoffs/meshes/iris_prop_cw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='iris::rotor_2_joint' type='revolute'>
+        <child>iris::rotor_2</child>
+        <parent>iris::base_link</parent>
+        <axis>
+          <xyz expressed_in='iris::__model__'>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0.004</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='iris::rotor_3'>
+        <pose relative_to='iris::__model__'>-0.13 -0.2 0.023 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>0.025</mass>
+          <inertia>
+            <ixx>9.75e-06</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000166704</iyy>
+            <iyz>0</iyz>
+            <izz>0.000167604</izz>
+          </inertia>
+        </inertial>
+        <collision name='rotor_3_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.005</length>
+              <radius>0.1</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rotor_3_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://iris_with_standoffs/meshes/iris_prop_cw.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>__default__</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='iris::rotor_3_joint' type='revolute'>
+        <child>iris::rotor_3</child>
+        <parent>iris::base_link</parent>
+        <axis>
+          <xyz expressed_in='iris::__model__'>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <damping>0.004</damping>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <static>0</static>
+      <plugin name='rotor_0_blade_1' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>0.084 0 0</cp>
+        <forward>0 1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_0</link_name>
+      </plugin>
+      <plugin name='rotor_0_blade_2' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>-0.084 0 0</cp>
+        <forward>0 -1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_0</link_name>
+      </plugin>
+      <plugin name='rotor_1_blade_1' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>0.084 0 0</cp>
+        <forward>0 1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_1</link_name>
+      </plugin>
+      <plugin name='rotor_1_blade_2' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>-0.084 0 0</cp>
+        <forward>0 -1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_1</link_name>
+      </plugin>
+      <plugin name='rotor_2_blade_1' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>0.084 0 0</cp>
+        <forward>0 -1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_2</link_name>
+      </plugin>
+      <plugin name='rotor_2_blade_2' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>-0.084 0 0</cp>
+        <forward>0 1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_2</link_name>
+      </plugin>
+      <plugin name='rotor_3_blade_1' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>0.084 0 0</cp>
+        <forward>0 -1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_3</link_name>
+      </plugin>
+      <plugin name='rotor_3_blade_2' filename='libLiftDragPlugin.so'>
+        <a0>0.3</a0>
+        <alpha_stall>1.4</alpha_stall>
+        <cla>4.2500</cla>
+        <cda>0.10</cda>
+        <cma>0.00</cma>
+        <cla_stall>-0.025</cla_stall>
+        <cda_stall>0.0</cda_stall>
+        <cma_stall>0.0</cma_stall>
+        <area>0.002</area>
+        <air_density>1.2041</air_density>
+        <cp>-0.084 0 0</cp>
+        <forward>0 1 0</forward>
+        <upward>0 0 1</upward>
+        <link_name>iris::rotor_3</link_name>
+      </plugin>
+      <plugin name='arducopter_plugin' filename='libArduPilotPlugin.so'>
+        <fdm_addr>127.0.0.1</fdm_addr>
+        <fdm_port_in>9042</fdm_port_in>
+        <fdm_port_out>9043</fdm_port_out>
+        <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
+        <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
+        <imuName>iris_demo_3::iris::iris/imu_link::imu_sensor</imuName>
+        <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+        <control channel='0'>
+          <type>VELOCITY</type>
+          <offset>0</offset>
+          <p_gain>0.20</p_gain>
+          <i_gain>0</i_gain>
+          <d_gain>0</d_gain>
+          <i_max>0</i_max>
+          <i_min>0</i_min>
+          <cmd_max>2.5</cmd_max>
+          <cmd_min>-2.5</cmd_min>
+          <jointName>iris::rotor_0_joint</jointName>
+          <multiplier>838</multiplier>
+          <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
+        </control>
+        <control channel='1'>
+          <type>VELOCITY</type>
+          <offset>0</offset>
+          <p_gain>0.20</p_gain>
+          <i_gain>0</i_gain>
+          <d_gain>0</d_gain>
+          <i_max>0</i_max>
+          <i_min>0</i_min>
+          <cmd_max>2.5</cmd_max>
+          <cmd_min>-2.5</cmd_min>
+          <jointName>iris::rotor_1_joint</jointName>
+          <multiplier>838</multiplier>
+          <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
+        </control>
+        <control channel='2'>
+          <type>VELOCITY</type>
+          <offset>0</offset>
+          <p_gain>0.20</p_gain>
+          <i_gain>0</i_gain>
+          <d_gain>0</d_gain>
+          <i_max>0</i_max>
+          <i_min>0</i_min>
+          <cmd_max>2.5</cmd_max>
+          <cmd_min>-2.5</cmd_min>
+          <jointName>iris::rotor_2_joint</jointName>
+          <multiplier>-838</multiplier>
+          <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
+        </control>
+        <control channel='3'>
+          <type>VELOCITY</type>
+          <offset>0</offset>
+          <p_gain>0.20</p_gain>
+          <i_gain>0</i_gain>
+          <d_gain>0</d_gain>
+          <i_max>0</i_max>
+          <i_min>0</i_min>
+          <cmd_max>2.5</cmd_max>
+          <cmd_min>-2.5</cmd_min>
+          <jointName>iris::rotor_3_joint</jointName>
+          <multiplier>-838</multiplier>
+          <controlVelocitySlowdownSim>1</controlVelocitySlowdownSim>
+        </control>
+      </plugin>
+      <pose>5.10713 2.95155 -0.000426 -0.002115 -2e-06 1e-06</pose>
     </model>
   </world>
 </sdf>

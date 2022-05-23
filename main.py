@@ -70,3 +70,16 @@ os.system("gazebo --verbose worlds/Created_Universe.world")
 if os.path.exists(filePath):
     os.remove(filePath)
     print("Deleted file")
+
+
+os.system("./build/PhysicsEngine init.json")
+
+
+'''
+#convertNED2LLA(quad_X_Pos, quad_Y_Pos, quad_Z_Pos, 0) # Incorrect conversions....check math
+for i in range(0, quad_instance_nos+fw_instance_nos):
+    exe_str = "sim_vehicle.py "
+    fixed_str = f"-v ArduCopter -f gazebo-iris -I{i} --no-extra=ports --auto-sysid"
+    location_str= f"-l=({lat},{lon},{alt},{heading}"
+    os.system(exe_str+fixed_str)
+'''
