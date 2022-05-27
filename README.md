@@ -1,66 +1,43 @@
 # SwarmSimulator
 
-1.	Project Structure
-This project should contain the source code for OSK CMD, the simulator core and the plugins required by gazebo to visualize the vehicles. 
-The simulator core contains the source code for compiling the CMD physics engine for a rover model and a quadcopter model. In the CMake file the code compiles to create an executable called PhysicsEngine. It also holds the source code for compiling a model plugin for gazebo. Gazebo plugins are linux static libraries with .so extensions and they need to be called from the .sdf file for the model placed in gazebo.The folder also contains worlds, models and plugins required by gazebo for simulating and visualizing our vehicles. 
+1. Requirements
+Ubuntu 18 or 20 running natively or in WSL. WSL2 is required to run full 3D graphics
+Gazebo 11
+ardupilot
+ROS Noetic (Optional, on packages used)
+Eigen3
+navpy
 
-2.	How to compile
- Make a new build folder using the mkdir command and cd into it
+
+2. How to Install
+Make a new build folder using the mkdir command and cd into it
 	$mkdir build && cd build
 Run cmake
 	$cmake ..
 Once its completed run the make command
-          $make
-Once the compilation is successful, you should see an executable called PhysicsEngine and a static library called CMDPlugin.so. Copy the CMDPlugin.so to plugins folder.
+    $make
+Once the compilation is successful, you should see an executable called PhysicsEngine and a static library called CMDPlugin.so. Copy the CMDPlugin.so to plugins folder. If any of the ROS based
+controllers are compiled, the executable is build in this folder.
 
 3.	Running the code
-3.1.	Starting a rover model
-Open 3 different terminals.
-In the 1st terminal cd into worlds folder and run gazebo with the following command
-	$gazebo --verbose cmdrover_test.world
-This will open an empty world with a single rover placed at the origin
-In the 2nd terminal cd into the build folder and run the PhysicsEngine executable as follows
-	$./PhysicsEngine ../init.json
-The argument 0 is switching the physics engine to run a rover model
-In the 3rd terminal cd into ardupilot directory and run the following command
-	$sim_vehicle.py --v Rover --f JSON --map –console
+3.1. Setting the simulation configuration
+open the init.json file and set the number of instances, instance numbers and start locations for each of the vehicles. The instances must be uniques and ensure not instance numbers are
+repeated or this much cause issues when loading the simulation. Set the Home location value in LLA. The start locations values are in NED coordinates and all units are in meters or degrees.
 
-3.2.	 Running the rover model
-In the terminal from which you started sim_vehicle.py, once the Autopilot is ready you should be able to control the rover model in gazebo. Type in the following commands
-arm uncheck all
-arm throttle (you should see the arm is armed in the console as shown in figure below
- 
+3.2. Launching the simulation
+In the main directory run the launch file using the command
+	$python3 sitl_launch.py
 
-                    
+This file will launch gazebo viz and multiple instances of ardupilot's sim_vehicle.py and connect with the CMD FDM model. The gazebo visualization window will display the vehicles set in your init.json file
+at locations set in the file around the origin. You can connect to Mission Planner or QGroundcontrol to connect to the simulated vehicles and read the telemetry data.
 
-rc 3 1800 (this throttles the rover forward) 
+Note: Since Mission planner is not available on Ubuntu, we will launch it on a Windows machine and network it with the system running Ubuntu. To connect to the vehicles, we will connect on TCP to the IP address of
+the Ubuntu machine and port 3456.
 
-The range is 1100 to 1900 and 1500 is zero throttle
+3.3 Running a controller
+Currently there are two controllers that are used in testing: Rigid Formations using Virtual Structures, and Vicsek Formations. There controllers are not designed for Quadrotors and GroundRovers and NOT fixed wing
+vehicles. To run the RFVS controller, run the takeoff command for each of the vehicles using MissionPlanner. Then cd in scripts and run
+	$python3 VSControl.py
 
-rc 1 1600 (this controls the heading of the rover)
-The range is 1100 to 1900 and 1500 is stick center
-
-4.	Running the code
-4.1.	Starting a quadcopter model
-Open 3 different terminals.
-In the 1st terminal cd into Simulation folder and run gazebo with the following command
-	$gazebo –verbose cmdquad_test.world
-This will open an empty world with a single quadcopter placed at the origin
-In the 2nd terminal cd into the build folder in ProjectTest and run the PhysicsEngine executable as follows
-	$./PhysicsEngine 1
-The argument 1 is switching the physics engine to run a quadcopter model
-In the 3rd terminal cd into ardupilot directory and run the following command
-	$sim_vehicle.py --v Arducopter --f JSON --map –console
-
-4.2.	 Running the quadcopter model
-In the terminal from which you started sim_vehicle.py, once the Autopilot is ready you should be able to control the quadcopter model in gazebo. Type in the following commands
-arm uncheck all
-arm throttle 
-rc 3 1800 (this throttles the quadcopter upward)
-
-rc 1/2/4 1800 control yaw, roll and pitch
-
-
-# Required Libraries
-1. navpy
-
+Similarly To run the VicsekSwarm run
+	$python3 Vicsek.py
