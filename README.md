@@ -61,3 +61,6 @@ rc 3 1800 (this throttles the quadcopter upward)
 rc 1/2/4 1800 control yaw, roll and pitch
 
 
+# Required Libraries
+1. navpy
+
