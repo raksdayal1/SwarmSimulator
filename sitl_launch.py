@@ -109,7 +109,7 @@ else:
 APMRos = "<launch>\n"
 for id in quad_instances + fw_instances:
     APMRos += f"""<node pkg="mavros" type="mavros_node" name="mavros" required="false" clear_params="true" output="screen" respawn="true" ns="/drone{id+1}">
-		<param name="fcu_url" value="udp://127.0.0.1:{14550+10*id}@" />
+		<param name="fcu_url" value="udp://127.0.0.1:{14551+10*id}@" />
 		<param name="gcs_url" value="" />
 		<param name="target_system_id" value="{id+1}" />
 		<param name="target_component_id" value="1" />
@@ -130,11 +130,12 @@ print("Created a new ROSAPM file")
 #Ap_Commands.append(["roslaunch", "cowboy_swarm", "apm2_multitest.launch"])
 # Ap_Commands.append(["python3", "simulation_setup.py", f"{lat_ref}", f"{lon_ref}", f"{alt_ref}"])
 
-# print(Ap_Commands)
+print(Ap_Commands)
 
 procs = []
 for cmd in Ap_Commands:
     procs.append(Popen(cmd, stdout=DEVNULL, stderr=DEVNULL))
+    #procs.append(Popen(cmd))
     time.sleep(1)
 
 procs.append(Popen(["roslaunch", "cowboy_swarm", "apm2_multitest.launch"]))

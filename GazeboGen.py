@@ -270,7 +270,7 @@ def CreateRunwayWorld():
 
 def CreateQuadModel(fdm_addr, port_in, port_out, x_pos_init, y_pos_init, z_pos_init, instance):
     model_str = f"""
-    <model name="iris_demo{instance}">
+    <model name="iris_demo{instance+1}">
         <pose> {x_pos_init} {y_pos_init} {z_pos_init} 0 0 0 </pose>
         <include>
           <uri>model://iris_with_standoffs</uri>
@@ -490,7 +490,7 @@ def CreateQuadModel(fdm_addr, port_in, port_out, x_pos_init, y_pos_init, z_pos_i
 
 def CreateUAM_Model(fdm_addr, port_in, port_out, x_pos_init, y_pos_init, z_pos_init, instance):
     model_str = f"""
-    <model name="iris_demo{instance}">
+    <model name="iris_demo{instance+1}">
         <pose> {x_pos_init} {y_pos_init} {z_pos_init} 0 0 0 </pose>
         <include>
           <uri>model://iris_with_standoffs</uri>
@@ -710,7 +710,7 @@ def CreateUAM_Model(fdm_addr, port_in, port_out, x_pos_init, y_pos_init, z_pos_i
 
 def CreateFWModel(fdm_addr, port_in, port_out, x_pos_init, y_pos_init, z_pos_init, instance):
     model_str = f"""
-    <model name="zephyr_delta_wing_demo{instance}">
+    <model name="zephyr_delta_wing_demo{instance+1}">
     <pose>{x_pos_init} {y_pos_init} {z_pos_init} 0 0 0</pose>
     <include>
       <uri>model://zephyr_delta_wing</uri>
@@ -728,7 +728,7 @@ def CreateFWModel(fdm_addr, port_in, port_out, x_pos_init, y_pos_init, z_pos_ini
       <fdm_port_out>{port_out}</fdm_port_out>
       <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 -1.57079</modelXYZToAirplaneXForwardZDown>
       <gazeboXYZToNED>0 0 0 3.141593 0 -1.57079</gazeboXYZToNED>
-      <imuName>zephyr_delta_wing_demo{instance}::zephyr_delta_wing::zephyr/imu_link::imu_sensor</imuName>
+      <imuName>zephyr_delta_wing_demo{instance+1}::zephyr_delta_wing::zephyr/imu_link::imu_sensor</imuName>
       <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
       <control channel="2">
         <!--
