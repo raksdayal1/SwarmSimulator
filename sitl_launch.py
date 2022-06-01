@@ -3,7 +3,7 @@ import time
 import json
 import navpy
 
-from subprocess import Popen
+from subprocess import Popen, DEVNULL
 
 from GazeboGen import *
 
@@ -11,7 +11,7 @@ from GazeboGen import *
 TODO: Run checks to make sure none of the instances are repeated
 '''
 
-with open('init.json') as json_file:
+with open('../init.json') as json_file:
     data = json.load(json_file)
 
 ip_addr = data['IP_addr']
@@ -51,14 +51,15 @@ mavproxy_exe = ["mavproxy.py", "--out=tcpin:0.0.0.0:3456"]
 for i in quad_instances:
     port_in = 9002 + 10 * i
     port_out = 9003 + 10 * i
-    Sdf += CreateQuadModel('127.0.0.1', port_in, port_out, quad_X_Pos[Counter], quad_Y_Pos[Counter], quad_Z_Pos[Counter], i)
+    Sdf += CreateQuadModel('127.0.0.1', port_in, port_out, quad_X_Pos[Counter], quad_Y_Pos[Counter],
+                           quad_Z_Pos[Counter], i)
     ned = [quad_X_Pos[Counter], quad_Y_Pos[Counter], quad_Z_Pos[Counter]]
     lla_out = navpy.ned2lla(ned, lat_ref, lon_ref, alt_ref, latlon_unit='deg', alt_unit='m', model='wgs84')
 
-    ap_cmd = ["sim_vehicle.py","-vArduCopter", "-fgazebo-iris", f"-I{i}",
+    ap_cmd = ["sim_vehicle.py", "-vArduCopter", "-fgazebo-iris", f"-I{i}",
               "--auto-sysid", f"--custom-location={lla_out[0]},{lla_out[1]},{lla_out[2]},0"]
 
-    udp_port = 14550+10*i
+    udp_port = 14550 + 10 * i
     mavproxy_exe.append(f"--master=udp:127.0.0.1:{udp_port}")
     Ap_Commands.append(ap_cmd)
     Counter += 1
@@ -89,20 +90,52 @@ if os.path.exists(filePath):
 else:
     print("Can not delete the file as it doesn't exists")
 
-with open("worlds/Created_Universe.world", "w") as file:
+with open("../worlds/Created_Universe.world", "w") as file:
     file.write(Sdf)
 
 print("Created a new simulation world")
 
 time.sleep(1)
-
-Ap_Commands.append(["gazebo", "--verbose", "worlds/Created_Universe.world"])
-
+Ap_Commands.append(["gazebo", "--verbose", "../worlds/Created_Universe.world"])
 Ap_Commands.append(mavproxy_exe)
 
-print(Ap_Commands)
+filePathapm = '/mnt/d/Projects/CounterUAS_COE/ros_ws/src/cowboy_swarm/launch/apm2_multitest.launch'
+if os.path.exists(filePathapm):
+    os.remove(filePathapm)
+    print("Deleted roslaunch APM file")
+else:
+    print("Can not delete the roslaunch APM file as it doesn't exists")
 
-procs = [Popen(cmd) for cmd in Ap_Commands]
+APMRos = "<launch>\n"
+for id in quad_instances + fw_instances:
+    APMRos += f"""<node pkg="mavros" type="mavros_node" name="mavros" required="false" clear_params="true" output="screen" respawn="true" ns="/drone{id}">
+		<param name="fcu_url" value="udp://127.0.0.1:{14550+10*id}@" />
+		<param name="gcs_url" value="" />
+		<param name="target_system_id" value="{id}" />
+		<param name="target_component_id" value="1" />
+		<param name="fcu_protocol" value="v2.0" />
+
+		<!-- load blacklist, config -->
+		<rosparam command="load" file="$(find mavros)/launch/apm_pluginlists.yaml" />
+		<rosparam command="load" file="$(find mavros)/launch/apm_config.yaml" />
+	</node>"""
+APMRos += "\n</launch>"
+
+with open("/mnt/d/Projects/CounterUAS_COE/ros_ws/src/cowboy_swarm/launch/apm2_multitest.launch", "w") as file:
+    file.write(APMRos)
+
+
+Ap_Commands.append(["roslaunch", "cowboy_swarm", "apm2_multitest.launch"])
+# Ap_Commands.append(["python3", "simulation_setup.py", f"{lat_ref}", f"{lon_ref}", f"{alt_ref}"])
+
+# print(Ap_Commands)
+
+procs = []
+for cmd in Ap_Commands:
+    procs.append(Popen(cmd, stdout=DEVNULL, stderr=DEVNULL))
+    time.sleep(1)
+
+# procs.append(Popen(["roslaunch", "cowboy_swarm", "apm2_multitest.launch"]))
 for p in procs:
     p.wait()
 
@@ -110,3 +143,10 @@ time.sleep(2)
 if os.path.exists(filePath):
     os.remove(filePath)
     print("Deleted simulation file")
+
+time.sleep(1)
+if os.path.exists(filePathapm):
+    os.remove(filePathapm)
+    print("Deleted Roslaunch apm simulation file")
+
+
