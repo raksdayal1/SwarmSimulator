@@ -108,10 +108,10 @@ else:
 
 APMRos = "<launch>\n"
 for id in quad_instances + fw_instances:
-    APMRos += f"""<node pkg="mavros" type="mavros_node" name="mavros" required="false" clear_params="true" output="screen" respawn="true" ns="/drone{id}">
+    APMRos += f"""<node pkg="mavros" type="mavros_node" name="mavros" required="false" clear_params="true" output="screen" respawn="true" ns="/drone{id+1}">
 		<param name="fcu_url" value="udp://127.0.0.1:{14550+10*id}@" />
 		<param name="gcs_url" value="" />
-		<param name="target_system_id" value="{id}" />
+		<param name="target_system_id" value="{id+1}" />
 		<param name="target_component_id" value="1" />
 		<param name="fcu_protocol" value="v2.0" />
 

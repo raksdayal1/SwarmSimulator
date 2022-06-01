@@ -418,7 +418,7 @@ def CreateQuadModel(fdm_addr, port_in, port_out, x_pos_init, y_pos_init, z_pos_i
           -->
           <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
           <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
-          <imuName>iris_demo{instance}::iris::iris/imu_link::imu_sensor</imuName>
+          <imuName>iris_demo{instance+1}::iris::iris/imu_link::imu_sensor</imuName>
           <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
           <control channel="0">
           <!--
@@ -638,7 +638,7 @@ def CreateUAM_Model(fdm_addr, port_in, port_out, x_pos_init, y_pos_init, z_pos_i
           -->
           <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
           <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
-          <imuName>iris_demo{instance}::iris::iris/imu_link::imu_sensor</imuName>
+          <imuName>iris_demo{instance+1}::iris::iris/imu_link::imu_sensor</imuName>
           <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
           <control channel="0">
           <!--
