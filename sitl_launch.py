@@ -83,7 +83,7 @@ for j in fw_instances:
 
 Sdf += GetFooter()
 
-filePath = './worlds/Created_Universe.world'
+filePath = '../worlds/Created_Universe.world'
 if os.path.exists(filePath):
     os.remove(filePath)
     print("Deleted file")
@@ -124,8 +124,10 @@ APMRos += "\n</launch>"
 with open("/mnt/d/Projects/CounterUAS_COE/ros_ws/src/cowboy_swarm/launch/apm2_multitest.launch", "w") as file:
     file.write(APMRos)
 
+print("Created a new ROSAPM file")
 
-Ap_Commands.append(["roslaunch", "cowboy_swarm", "apm2_multitest.launch"])
+
+#Ap_Commands.append(["roslaunch", "cowboy_swarm", "apm2_multitest.launch"])
 # Ap_Commands.append(["python3", "simulation_setup.py", f"{lat_ref}", f"{lon_ref}", f"{alt_ref}"])
 
 # print(Ap_Commands)
@@ -135,7 +137,7 @@ for cmd in Ap_Commands:
     procs.append(Popen(cmd, stdout=DEVNULL, stderr=DEVNULL))
     time.sleep(1)
 
-# procs.append(Popen(["roslaunch", "cowboy_swarm", "apm2_multitest.launch"]))
+procs.append(Popen(["roslaunch", "cowboy_swarm", "apm2_multitest.launch"]))
 for p in procs:
     p.wait()
 
