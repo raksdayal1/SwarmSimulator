@@ -75,7 +75,7 @@ for j in fw_instances:
     ap_cmd = ["sim_vehicle.py", "-v ArduPlane", "-f gazebo-zephyr", f"-I{j}",
               "--auto-sysid ", f"--custom-location=({lla_out[0]},{lla_out[1]},{lla_out[2]},0)"]
 
-    udp_port = 14550 + 10 * i
+    udp_port = 14550 + 10 * j
     mavproxy_exe.append(f"--master=udp:127.0.0.1:{udp_port}")
 
     Ap_Commands.append(ap_cmd)
@@ -121,7 +121,7 @@ for id in quad_instances + fw_instances:
 	</node>"""
 APMRos += "\n</launch>"
 
-with open("/mnt/d/Projects/CounterUAS_COE/ros_ws/src/cowboy_swarm/launch/apm2_multitest.launch", "w") as file:
+with open(filePathapm, "w") as file:
     file.write(APMRos)
 
 print("Created a new ROSAPM file")
