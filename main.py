@@ -2,7 +2,7 @@ import sys, os
 import time
 import json
 
-from supportfiles import *
+from GazeboGen import *
 
 with open('init.json') as json_file:
     data = json.load(json_file)
@@ -61,7 +61,7 @@ else:
 with open("worlds/Created_Universe.world", "w") as file:
     file.write(Sdf)
 
-print("Created a new world")
+print("Created a new simulation world")
 
 time.sleep(1)
 
@@ -69,17 +69,13 @@ os.system("gazebo --verbose worlds/Created_Universe.world")
 
 if os.path.exists(filePath):
     os.remove(filePath)
-    print("Deleted file")
+    print("Deleted simulation file")
 
 
-os.system("./build/PhysicsEngine init.json")
+#os.system("./build/PhysicsEngine init.json")
 
-
-'''
-#convertNED2LLA(quad_X_Pos, quad_Y_Pos, quad_Z_Pos, 0) # Incorrect conversions....check math
-for i in range(0, quad_instance_nos+fw_instance_nos):
-    exe_str = "sim_vehicle.py "
-    fixed_str = f"-v ArduCopter -f gazebo-iris -I{i} --no-extra=ports --auto-sysid"
-    location_str= f"-l=({lat},{lon},{alt},{heading}"
-    os.system(exe_str+fixed_str)
-'''
+# This works only for iris quadcopters
+for vehicle_no in range(0, total_no_of_vehicles):
+    ardupilot_cmd = "sim_vehicle.py"
+    fixed_params = f"-v ArduCopter -f gazebo-iris -I {vehicle_no} --auto-sysid"
+    home_param = "-Z "

@@ -2,11 +2,11 @@
     "IP_addr" : "127.0.0.1",
     "Vehicles": {
       "Quadcopters": {
-        "Instances": 1,
-        "InstanceNo": [0],
-        "Xstart": [0],
-        "Ystart": [0],
-        "Zstart": [0.1]
+        "Instances": 2,
+        "InstanceNo": [0,1,2,3,4,5],
+        "Xstart": [10,15,20,25,30,35],
+        "Ystart": [0,0,0,0,0,0],
+        "Zstart": [0.1,0.1,0.1,0.1,0.1,0.1]
       },
       "Fixedwings": {
         "Instances": 0,
