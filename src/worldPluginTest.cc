@@ -1,4 +1,5 @@
 #include <ignition/math/Pose3.hh>
+//#include "gazebo/physics/World.hh"
 #include "gazebo/physics/physics.hh"
 #include "gazebo/common/common.hh"
 #include "gazebo/gazebo.hh"
@@ -11,15 +12,16 @@ class WPT : public WorldPlugin
   {
     
     {
-      
-      transport::NodePtr node(new transport::Node());
+      /*void InstatiateDrone(name, posx, posy, posz, IP address) {
 
+} */
+      transport::NodePtr node(new transport::Node());
       
       node->Init(_parent->Name());
       std::cout << _parent->Name() << std::endl;
      
       transport::PublisherPtr WPTPub = 
-      node->Advertise<msgs::Factory>("~/worldPluginTutorial");
+      node->Advertise<msgs::Factory>("~/worldPluginTutorial"); //<-- Not sure
 
       
       msgs::Factory msg;
@@ -46,7 +48,7 @@ GZ_REGISTER_WORLD_PLUGIN(WPT)
 
 
 
-/*MODEL SUDO CODE STUFF (Very Cool)
+/*MODEL SUDO CODE
 
  void InstatiateDrone(name, posx, posy, posz, IP address) {
 
