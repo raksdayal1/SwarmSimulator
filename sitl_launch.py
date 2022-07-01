@@ -117,7 +117,7 @@ time.sleep(1)
 Ap_Commands.insert(0, ["gazebo", "--verbose", "../worlds/Created_Universe.world"])
 Ap_Commands.append(mavproxy_exe)
 
-filePathapm = '/mnt/d/Projects/CounterUAS_COE/ros_ws/src/cowboy_swarm/launch/apm2_multitest.launch'
+filePathapm = '/home/eoconn/simulator_ws/src/cowboy_swarm/launch/apm2_multitest.launch'
 if os.path.exists(filePathapm):
     os.remove(filePathapm)
     print("Deleted roslaunch APM file")
